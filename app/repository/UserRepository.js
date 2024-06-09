@@ -1,4 +1,3 @@
-// repository/UserRepository.js
 const User = require('../schema/UserSchema');
 
 const createUser = async (userData) => {
