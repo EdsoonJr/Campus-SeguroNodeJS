@@ -20,3 +20,4 @@ require('./infra/database/mongo/conection');
 const UserController = require('./app/controllers/UserController');
 
 app.post('/users', UserController.createUser);
+app.post('/login', UserController.loginUser);
