@@ -1,0 +1,92 @@
+/* CadastroForm.module.css */
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cadastroForm {
+  /* Estilos para o formulário de cadastro */
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+}
+
+.cadastroTitle {
+  /* Estilos para o título 'Cadastro' */
+  text-align: center;
+  color: #333; /* Cor escura */
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  /* Estilos para os grupos de formulário */
+  margin-bottom: 20px;
+}
+
+label {
+  /* Estilos para as etiquetas */
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555; /* Cor mais escura */
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+select {
+  /* Estilos para os campos de entrada */
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  /* Estilos específicos para o menu suspenso */
+  appearance: none; /* Remove a aparência padrão do sistema */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>'); /* Adiciona uma seta personalizada */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Posiciona a seta no lado direito */
+}
+
+input[type='radio'] {
+  /* Estilos para os botões de opção de rádio */
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+button {
+  /* Estilos para o botão de cadastro */
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
