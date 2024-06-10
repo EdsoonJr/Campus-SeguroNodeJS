@@ -24,26 +24,25 @@ const CadastroForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const userData = { nome: name, email, senha: password, tipoUsuario: userType, genero: gender, telefone: phone };
-    console.log('Dados do formulário de cadastro:', userData);
+    const userData = {
+      nome: name,
+      email,
+      senha: password,
+      tipoUsuario: userType,
+      genero: gender,
+      telefone: phone
+    };
     
     try {
       const response = await axios.post('http://localhost:3001/users', userData);
-      console.log('Resposta do servidor:', response.data);
       navigate('/main'); // Redirecionar para a página principal após o cadastro
     } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error);
-      if (error.response) {
-        console.error('Detalhes do erro:', error.response.data);
-      }
+      // Tratamento de erro
     }
   };
 
   return (
-    <div>
-      <div className={styles.background}>
-        <img src="https://imgur.com/iqIiCIt.jpg" alt="" />
-      </div>
+    <div className={styles.container}>
       <div className={styles.cadastroForm}>
         <h2 className={styles.cadastroTitle}>Cadastro</h2>
         <form onSubmit={handleSubmit}>
@@ -82,7 +81,13 @@ const CadastroForm = () => {
           </div>
           <div className={styles.formGroup}>
             <label htmlFor='userType'>Tipo de usuário:</label>
-            <select id='userType' name='userType' value={userType} onChange={handleChange} required>
+            <select 
+              id='userType' 
+              name='userType' 
+              value={userType} 
+              onChange={handleChange} 
+              required
+            >
               <option value=''>Selecione...</option>
               <option value='responsavel'>Responsável</option>
               <option value='estudante'>Estudante</option>
@@ -100,7 +105,7 @@ const CadastroForm = () => {
                   checked={gender === 'masculino'} 
                   onChange={handleChange} 
                   required 
-                />{' '}
+                />
                 Masculino
               </label>
               <label>
@@ -111,7 +116,7 @@ const CadastroForm = () => {
                   checked={gender === 'feminino'} 
                   onChange={handleChange} 
                   required 
-                />{' '}
+                />
                 Feminino
               </label>
             </div>
