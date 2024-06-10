@@ -5,7 +5,7 @@ import About from "./About";
 import Resume from "./Resume";
 import Contact from "./Contact";
 import Portfolio from "./Portfolio";
-
+import Chat from "./TelaChat/Chat";
 class MainPage extends React.Component {
   render() {
     return (
@@ -15,6 +15,7 @@ class MainPage extends React.Component {
         <About data={this.props.resumeData.main} />
         <Portfolio data={this.props.resumeData.portfolio} />
         <Contact data={this.props.resumeData.main} />
+        <Chat/>      
         <Footer data={this.props.resumeData.main} />
       </div>
     );
