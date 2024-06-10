@@ -1,7 +1,6 @@
-// LoginForm.jsx
-
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Importe o componente Link
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import './TelaLogin.css';
 
 const LoginForm = () => {
@@ -15,11 +14,21 @@ const LoginForm = () => {
     if (name === 'password') setPassword(value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Formulário submetido:', { email, password });
-    // Redirecionar para a página principal após o login
-    navigate('/main');
+    const loginData = { email, senha: password }; // Aqui estamos usando 'senha' para compatibilidade com o backend
+    console.log('Dados do formulário de login:', loginData);
+
+    try {
+      const response = await axios.post('http://localhost:3001/login', loginData);
+      console.log('Resposta do servidor:', response.data);
+      navigate('/main'); // Redirecionar para a página principal após o login
+    } catch (error) {
+      console.error('Erro ao realizar login:', error);
+      if (error.response) {
+        console.error('Detalhes do erro:', error.response.data);
+      }
+    }
   };
 
   return (
@@ -61,10 +70,8 @@ const LoginForm = () => {
             <button type="submit">Entrar</button>
           </div>
           <div className="form-group" style={{ textAlign: "center" }}>
-           
             <Link to="/cadastro" style={{ color: "white", textDecoration: "none" }}>
               <button type='submit'>Cadastrar</button>
-              
             </Link>
           </div>
         </form>
@@ -74,4 +81,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
