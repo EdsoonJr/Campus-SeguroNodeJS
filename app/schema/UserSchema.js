@@ -23,7 +23,7 @@ const UserSchema = new Schema({
     tipoUsuario: {
         type: String,
         required: true,
-        enum: ['estudante', 'responsável', 'administrador'],
+        enum: ['estudante', 'responsavel', 'administrador'],
     },
     genero: {
         type: String,

@@ -19,7 +19,7 @@ const io = socketIo(server, {
 app.use(cors());
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Configuração do socket.io
 io.on('connection', (socket) => {

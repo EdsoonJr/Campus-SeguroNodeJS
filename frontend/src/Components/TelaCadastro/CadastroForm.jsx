@@ -1,7 +1,6 @@
-// CadastroForm.jsx
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './CadastroForm.module.css';
 
 const CadastroForm = () => {
@@ -10,6 +9,7 @@ const CadastroForm = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [gender, setGender] = useState('');
+  const [phone, setPhone] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -19,13 +19,24 @@ const CadastroForm = () => {
     if (name === 'password') setPassword(value);
     if (name === 'userType') setUserType(value);
     if (name === 'gender') setGender(value);
+    if (name === 'phone') setPhone(value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Formulário de cadastro submetido:', { name, email, password, userType, gender });
-    // Aqui você pode adicionar a lógica para enviar os dados do cadastro para o backend
-    navigate('/main'); // Redirecionar para a página principal após o cadastro
+    const userData = { nome: name, email, senha: password, tipoUsuario: userType, genero: gender, telefone: phone };
+    console.log('Dados do formulário de cadastro:', userData);
+    
+    try {
+      const response = await axios.post('http://localhost:3001/users', userData);
+      console.log('Resposta do servidor:', response.data);
+      navigate('/main'); // Redirecionar para a página principal após o cadastro
+    } catch (error) {
+      console.error('Erro ao cadastrar usuário:', error);
+      if (error.response) {
+        console.error('Detalhes do erro:', error.response.data);
+      }
+    }
   };
 
   return (
@@ -104,6 +115,17 @@ const CadastroForm = () => {
                 Feminino
               </label>
             </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor='phone'>Telefone:</label>
+            <input 
+              type='tel' 
+              id='phone' 
+              name='phone' 
+              value={phone} 
+              onChange={handleChange} 
+              required 
+            />
           </div>
           <div className={styles.formGroup} style={{ textAlign: 'center' }}>
             <button type='submit'>Cadastrar</button>
