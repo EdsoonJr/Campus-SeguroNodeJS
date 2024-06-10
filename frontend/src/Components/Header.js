@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"; // Importe o componente Link
 import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
 class Header extends Component {
+  handleLogout = () => {
+    // Aqui você pode implementar a lógica de logout
+    // Por exemplo, limpar os dados de autenticação do usuário no navegador
+    // E então redirecionar para a página de login
+  };
+
   render() {
     if (!this.props.data) return null;
 
     const project = this.props.data.project;
-    const github = this.props.data.github;
     const name = this.props.data.name;
     const description = this.props.data.description;
 
@@ -73,9 +79,9 @@ class Header extends Component {
                 <a href={project} className="button btn project-btn">
                   <i className="fa fa-book"></i>Project
                 </a>
-                <a href={github} className="button btn github-btn">
+                <Link to="/" className="button btn github-btn" onClick={this.handleLogout}>
                   <i className="fa fa-sign-out"></i>Exit
-                </a>
+                </Link>
               </ul>
             </Fade>
           </div>
