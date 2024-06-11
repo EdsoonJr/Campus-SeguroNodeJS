@@ -12,6 +12,9 @@ class Contact extends Component {
     const zip = this.props.data.address.zip;
     const phone = this.props.data.phone;
     const message = this.props.data.contactmessage;
+    const cemail = this.props.data.address.cemail
+    const cemail2 = this.props.data.address.cemail2
+    const cemail3 = this.props.data.address.cemail3
 
     return (
       <section id="contact">
@@ -36,7 +39,7 @@ class Contact extends Component {
                 <fieldset>
                   <div>
                     <label htmlFor="contactName">
-                      Name <span className="required">*</span>
+                      Nome <span className="required">*</span>
                     </label>
                     <input
                       type="text"
@@ -63,7 +66,7 @@ class Contact extends Component {
                   </div>
 
                   <div>
-                    <label htmlFor="contactSubject">Subject</label>
+                    <label htmlFor="contactSubject">Assunto</label>
                     <input
                       type="text"
                       defaultValue=""
@@ -76,7 +79,7 @@ class Contact extends Component {
 
                   <div>
                     <label htmlFor="contactMessage">
-                      Message <span className="required">*</span>
+                      Mensagem <span className="required">*</span>
                     </label>
                     <textarea
                       cols="50"
@@ -85,9 +88,8 @@ class Contact extends Component {
                       name="contactMessage"
                     ></textarea>
                   </div>
-
                   <div>
-                    <button className="submit">Submit</button>
+                    <button className="submit">Enviar</button>
                     <span id="image-loader">
                       <img alt="" src="images/loader.gif" />
                     </span>
@@ -106,12 +108,18 @@ class Contact extends Component {
           <Slide right duration={1000}>
             <aside className="four columns footer-widgets">
               <div className="widget widget_contact">
-                <h4>Address and Phone</h4>
+                <h4>Contatos e Emails</h4>
                 <p className="address">
-                  {name}
+                  {street}
+                  <br /> 
+                  {cemail}
                   <br />
-                  {street} <br />
-                  {city}, {state} {zip}
+                  {city} 
+                  <br />
+                  {cemail2}
+                  <br />
+                  {state}<br />
+                  {cemail3}
                   <br />
                   <span>{phone}</span>
                 </p>

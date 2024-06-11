@@ -84,9 +84,6 @@ class Header extends Component {
                 <a href={project} className="button btn project-btn">
                   <i className="fa fa-book"></i>Project
                 </a>
-                <Link to="/" className="button btn github-btn" onClick={this.handleLogout}>
-                  <i className="fa fa-sign-out"></i>Exit
-                </Link>
               </ul>
             </Fade>
           </div>
