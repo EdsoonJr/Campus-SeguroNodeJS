@@ -14,8 +14,8 @@ class MainPage extends React.Component {
         <Resume data={this.props.resumeData.resume} />
         <About data={this.props.resumeData.main} />
         <Portfolio data={this.props.resumeData.portfolio} />
-        <Contact data={this.props.resumeData.main} />
-        <Chat/>      
+        <Chat/> 
+        <Contact data={this.props.resumeData.main} />     
         <Footer data={this.props.resumeData.main} />
       </div>
     );

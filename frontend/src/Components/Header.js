@@ -58,9 +58,14 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="#contact">
+              <a className="smoothscroll" href="#chat">
                 Chat
               </a>
+            </li>
+            <li>
+              <Link to="/" className="button btn github-btn" onClick={this.handleLogout}>
+                <i className="fa fa-sign-out"></i>Exit
+              </Link>
             </li>
           </ul>
         </nav>
